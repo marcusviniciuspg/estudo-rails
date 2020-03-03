@@ -1,0 +1,5 @@
+Rails.application.routes.draw do
+  resources :levels, only: [:index] do
+    resources :disciplines, only: [:index]
+  end
+end

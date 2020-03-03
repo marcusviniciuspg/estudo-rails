@@ -1,0 +1,6 @@
+development:
+  matrix:
+    somos:
+      api:
+        graphql:
+          url:  https://somos-matriz-api.s.plurall.net/graphql 
