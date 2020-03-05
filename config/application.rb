@@ -29,5 +29,6 @@ module Fundamentos
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.settings = config_for(:settings)
+    config.autoload_paths = ["app/decorators"]
   end
 end

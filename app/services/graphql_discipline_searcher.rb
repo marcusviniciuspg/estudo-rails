@@ -4,19 +4,20 @@ class GraphqlDisciplineSearcher
   def initialize(cookie)
     @somos_client =  MatrixApi::Graphql::Somos.client(cookie)
     @level_edges = GraphqlLevelSearcher.new(cookie).load_edges
+    
   end
 
-  def query_string
-    'components {
-      edges {
-        node {
-          id
-          name
-          code
-        }
-      }
-    }'
-  end
+  # def query_string
+  #   'components {
+  #     edges {
+  #       node {
+  #         id
+  #         name
+  #         code
+  #       }
+  #     }
+  #   }'
+  # end
 
   def object_type_name
     'components'
@@ -24,7 +25,7 @@ class GraphqlDisciplineSearcher
 
   def level_list(edges)
     edges.map { |e| { id: e.node.id,  name: e.node.name } }
-  end 
+  end
 
   def level_id_by_name(name)
     level_list = level_list(@level_edges)
@@ -41,7 +42,6 @@ class GraphqlDisciplineSearcher
         }
       }
     }"
-    
   end
 
   def load_discipline_edges(level_id)
